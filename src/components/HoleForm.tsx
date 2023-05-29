@@ -27,7 +27,14 @@ const HoleForm = ({
   const [holePutts, setHolePutts] = useState("");
   const [holePar, setHolePar] = useState("");
 
-  console.log(holePar,)
+  const resetForm = () => {
+    setHolePar("");
+    setHoleIndex("");
+    setHoleScore("");
+    setHolePutts("");
+    setHoleFairway("");
+    setHoleGreen("");
+  };
 
   const navigate = useNavigate();
 
@@ -42,6 +49,7 @@ const HoleForm = ({
     }
     setRoundScore((currentScore) => Number(currentScore) + Number(holeScore));
     setStrokeIndex((currentStrokeIndex) => [...currentStrokeIndex, holeIndex]);
+    resetForm();
     if (holeNumber === 1) {
       navigate("/new-round/scores/2");
     }
@@ -56,32 +64,32 @@ const HoleForm = ({
     <form onSubmit={handleSubmit}>
       <h2>Hole {holeNumber}</h2>
       <label htmlFor="hole-par">Par:</label>
-      <select onChange={(e) => setHolePar(e.target.value)} id="hole-par">
+      <select value={holePar} onChange={(e) => setHolePar(e.target.value)} id="hole-par">
         <option value="">{""}</option>
         <option value="3">3</option>
         <option value="4">4</option>
         <option value="5">5</option>
       </select>
       <label htmlFor="hole-stroke-index">Stroke Index:</label>
-      <input
+      <input value={holeIndex}
         onChange={(e) => setHoleIndex(e.target.value)}
         type="number"
         id="hole-stroke-index"
       />
       <label htmlFor="hole-shots">Shots:</label>
-      <input
+      <input value={holeScore}
         onChange={(e) => setHoleScore(e.target.value)}
         type="number"
         id="hole-shots"
       />
       <label htmlFor="hole-putts">Putts:</label>
-      <input
+      <input value={holePutts}
         onChange={(e) => setHolePutts(e.target.value)}
         type="number"
         id="hole-putts"
       />
       <label htmlFor="hole-fairway">Fairway hit?:</label>
-      <select
+      <select value={holeFairway}
         onChange={(e) => setHoleFairway(e.target.value)}
         id="hole-fairway"
       >
@@ -90,7 +98,7 @@ const HoleForm = ({
         <option value="no">No</option>
       </select>
       <label htmlFor="hole-green-in-reg">Green in regulation?:</label>
-      <select
+      <select value={holeGreen}
         onChange={(e) => setHoleGreen(e.target.value)}
         id="hole-green-in-reg"
       >
