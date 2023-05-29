@@ -26,6 +26,8 @@ const HoleForm = ({
   const [holePutts, setHolePutts] = useState("");
   const [holePar, setHolePar] = useState("");
 
+  console.log(holePar,)
+
   const navigate = useNavigate();
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {

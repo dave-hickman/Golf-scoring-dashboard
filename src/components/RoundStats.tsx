@@ -1,6 +1,6 @@
 interface ScoresProps {
   par: string;
-  putts: number;
+  putts: Array<string>;
   roundScore: number;
   strokeIndex: Array<string>;
   fairways: number;
@@ -22,6 +22,9 @@ const RoundStats = ({
   if (netScore > 0) {
     positiveNegative = "+";
   }
+  console.log(strokeIndex)
+  const puttsToNumber = putts.map((putt) => Number(putt))
+  const averagePutts = (puttsToNumber.reduce((acc, num) => acc + num, 0 ))/puttsToNumber.length 
 
   return (
     <>
@@ -33,6 +36,7 @@ const RoundStats = ({
       </p>
       <p>Fairways hit: {fairways}</p>
       <p>Greens in regulation: {greens}</p>
+      <p>Average number of putts: {averagePutts}</p>
     </>
   );
 };

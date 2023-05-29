@@ -10,10 +10,10 @@ interface ScoresProps {
 
 const Scores = ({ par, handicap }: ScoresProps) => {
   const [roundScore, setRoundScore] = useState(0);
-  const [strokeIndex, setStrokeIndex] = useState([]);
+  const [strokeIndex, setStrokeIndex] = useState<string[]>([]);
   const [fairways, setFairways] = useState(0);
   const [greens, setGreens] = useState(0);
-  const [putts, setPutts] = useState([]);
+  const [putts, setPutts] = useState<string[]>([]);
 
   const holes = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18];
 
