@@ -24,7 +24,7 @@ const RoundStats = ({
   }
   console.log(strokeIndex)
   const puttsToNumber = putts.map((putt) => Number(putt))
-  const averagePutts = (puttsToNumber.reduce((acc, num) => acc + num, 0 ))/puttsToNumber.length 
+  const averagePutts = Math.round((puttsToNumber.reduce((acc, num) => acc + num, 0 ))/puttsToNumber.length) 
 
   return (
     <>

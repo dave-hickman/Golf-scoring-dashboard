@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
 import { useState } from "react";
+import "../holeForm.css"
 
 interface HoleFormProps {
   holeNumber: number;
